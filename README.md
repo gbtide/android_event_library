@@ -13,6 +13,7 @@
 ### 사용예시
 <pre><code>
 
+// 1. 이벤트 정의부
 // 이벤트 선언부. 꼭 enum을 쓸 필요는 없습니다. 예시입니다.
 public enum StaticEvent {
     NETWORK_ERROR(EventFactory.<Void>createEvent("NETWORK_ERROR")),
@@ -60,10 +61,10 @@ public enum StaticEvent {
     }
 }
     
-// 송신부
+// 2. 이벤트 송신부
 StaticEvent.NETWORK_ERROR.<Void>fire(null);
 
-// 수신부
+// 3. 이벤트 수신부
 StaticEvent.NETWORK_ERROR.<Void>observe(this, aVoid -> {
     showDialog(OldDialogHelper.DIALOG_ERROR_NETWORK);
 });
